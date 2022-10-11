@@ -112,7 +112,7 @@ const login = catchAsync(async (req, res, next) => {
   });
 
   // Compare passwords (entered password vs db password)
-  // If user doesn't exists or passwords doesn't match, send error
+  // If user doesn't exists or passwords doesn't match, send error.
   if (!user || !(await bcrypt.compare(password, user.password))) {
     return next(new AppError("Wrong  credentials", 400));
   }
